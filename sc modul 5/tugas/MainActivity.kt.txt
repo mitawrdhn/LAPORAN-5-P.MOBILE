@@ -1,0 +1,48 @@
+package com.example.latihanrecycleview
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.latihanrecycleview.Adapter
+import com.example.latihanrecycleview.Cities
+import com.example.latihanrecycleview.R
+import kotlinx.android.synthetic.main.activity_main.*
+
+
+class MainActivity : AppCompatActivity() {
+
+    val list = ArrayList<Cities>()
+    val listCities = arrayOf(
+        "Sidoarjo",
+        "Surabaya",
+        "Gresik",
+        "Batu",
+        "Malang",
+        "Kediri",
+        "Bogor",
+        "Jakarta",
+        "Madura",
+        "Banten"
+    )
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        mRecycleView.setHasFixedSize(true)
+        mRecycleView.layoutManager = LinearLayoutManager(this)
+        for (i in 0 until listCities.size) {
+            list.add(Cities(listCities.get(i)))
+            if (listCities.size - 1 == i) {
+                val adapter = Adapter(list)
+                adapter.notifyDataSetChanged()
+                mRecycleView.adapter = adapter
+            }
+        }
+
+
+
+
+
+    }
+
+
+}

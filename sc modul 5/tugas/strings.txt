@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LatihanRecycleView</string>
+    <string name="HALO">hello</string>
+</resources>
